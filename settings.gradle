@@ -1,2 +1,5 @@
 include ':app'
 rootProject.name = "ComposingBuildApp"
+
+// 通过includeBuild可以引用到ComposingBuildLibrary项目
+includeBuild("../ComposingBuildLibrary")
