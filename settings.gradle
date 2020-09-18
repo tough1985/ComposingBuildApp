@@ -1,5 +1,17 @@
 include ':app'
 rootProject.name = "ComposingBuildApp"
 
+/* 声明引入me.xiba.composing.setting插件 */
+apply plugin: "me.xiba.composing.setting"
+
+buildscript {
+    dependencies {
+        // 插件所在的路径，如要注意的是，如果插件源码更新了，可能要先删除原来的composing_plugin.jar文件
+        // 然后将 这部分代码注释掉，sync一下，再将注释打开，再sync一下就好了
+        classpath files("./buildSrc/composing_plugin/build/libs/composing_plugin.jar")
+    }
+}
+/* 声明引入me.xiba.composing.setting插件 */
+
 // 通过includeBuild可以引用到ComposingBuildLibrary项目
 //includeBuild("../ComposingBuildLibrary")
