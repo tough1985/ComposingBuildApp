@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.xiba.composing.project'
 
 android {
     compileSdkVersion 29
@@ -22,6 +23,15 @@ android {
     }
 }
 
+// 创建Extensions使用的名称
+ComposingDependency{
+    // DependencyProjectConfigExtension中的属性名称
+    dependencyProjectConfig {
+        // 依赖的项目名称
+        composinglibrary {}
+    }
+}
+
 // 添加本地Maven仓库
 repositories {
     maven { url uri('../../repo') }
@@ -36,7 +46,7 @@ dependencies {
 //    implementation 'me.xiba.lib:composinglibrary:1.0'
 
     // 通过Maven引用composingLibrary的aar
-    implementation 'me.xiba.lib:composinglibraryMaven:1.0'
+//    implementation 'me.xiba.lib:composinglibraryMaven:1.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
