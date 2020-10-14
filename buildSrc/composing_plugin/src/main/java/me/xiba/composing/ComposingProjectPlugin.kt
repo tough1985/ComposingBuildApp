@@ -1,5 +1,6 @@
 package me.xiba.composing
 
+import com.android.build.gradle.AppExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import java.io.File
@@ -29,6 +30,9 @@ class ComposingProjectPlugin : Plugin<Project> {
         }
 
         project.afterEvaluate {
+
+            var appExtension = project.extensions.getByType(AppExtension::class.java)
+            println("appExtension = $appExtension" )
 
             // 获取当前项目配置的依赖项目名称
             composingProjectExtension.dependencyProjectConfig.all {
